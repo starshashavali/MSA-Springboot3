@@ -1,0 +1,15 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id: INDIGOFLIGHTSSERVICE
+          predicates:
+             - Path=//flight/api/**
+          uri: lb://INDIGOFLIGHTSSERVICE
+
+
